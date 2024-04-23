@@ -1,0 +1,7 @@
+.sendButton {
+    border: none;
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    font-weight: bold;
+}
