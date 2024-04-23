@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ThreeDots } from 'react-loader-spinner'
 import { SubmitButton } from '../../Components/SubmitButton';
-import { MultiCreateAbleSelect } from '../../Components/MultiCreateAbleSelect/MultiCreateAbleSelect';
+import { MultiCreateAbleSelect } from '../../Components/MultiCreateAbleSelect';
+import { MessagesContainer } from '../MessagesContainer/';
 import styles from './ChatScreen.module.css';
 import { submitQuestionAndDocuments, getQuestionAndFacts } from '../../APIs';
 
@@ -132,53 +132,16 @@ export function ChatScreen() {
         setSelectedOptions([])
     };
 
-    
-
     return (
         <div className={styles.chatContainer}>
-            <div className={styles.messagesContainer}>
-                {messages.map((message, index) => {
-                    if(message) {
-                        if(message.type == "question") {
-                            return (
-                                <div key={index} className={`${styles.message} ${styles.user}`}>
-                                    <strong>Question:</strong> {message.question}
-                                    <p><strong>Documents:</strong> {message.docUrls.join(', ')}</p>
-                                </div>
-                            )
-                        }
-                        else if (message.type == "response" && Array.isArray(message.facts)) {
-
-                            return (
-                                <div key={index} className={`${styles.message} ${styles.agent}`}>
-                                    <strong>Response:</strong>
-                                    {
-                                        message.facts.map((fact, factIndex) => (
-                                            <p key={factIndex}> {fact}</p>
-                                        ))
-                                    }
-                                    
-                                </div>
-                            )
-                        }
-                    }
-                })}
-                {waitingForResponse &&
-                    <div className={styles.loaderContainer}>
-                        <ThreeDots
-                        visible={true}
-                        height="20"
-                        width="20"
-                        color="#4fa94d"
-                        radius="9"
-                        ariaLabel="three-dots-loading"
-                        wrapperStyle={{}}
-                        wrapperClass=""
-                        />
-                    </div>
-                }
-                
+            <div className={styles.bannerContainer}>
+                <p>
+                    Transcript AI
+                </p>
             </div>
+
+            <MessagesContainer messages={messages} showLoader={waitingForResponse}/>
+
             <div className={styles.chatActionContainer}>
                 <div className={styles.formContainer}>
                     <div className={`${styles.questionContainer} ${isInputFocused && styles.focus || ''}`}>
@@ -197,9 +160,13 @@ export function ChatScreen() {
                         <MultiCreateAbleSelect
                             value={selectedOptions}
                             onChange={(selectedOptions, actionMeta) => {
-
-                                // Handling adding/removing a document
-                                if (actionMeta.action === 'remove-value' || actionMeta.action === 'pop-value' && actionMeta.removedValue && actionMeta.removedValue.value) {
+                                if(actionMeta.action == 'clear') {
+                                    // If all selected values are removed
+                                    setSelectedUrls([])
+                                    setSelectedOptions([])
+                                }
+                                else if (actionMeta.action === 'remove-value' || actionMeta.action === 'pop-value' && actionMeta.removedValue && actionMeta.removedValue.value) {
+                                    // If a selected value is removed
                                     console.log('Removed value:', actionMeta.removedValue);
                                     setSelectedUrls(currentSelectedOptions => currentSelectedOptions.filter(item => item !== actionMeta.removedValue.value))
                                     setSelectedOptions(selectedOptions)
@@ -223,6 +190,7 @@ export function ChatScreen() {
                                     setSelectedUrls(currentUrls => [...currentUrls, inputValue])
                                 }}
                             }
+                            placeholder="Type or select documents"
                         />
                     </div>
                 </div>

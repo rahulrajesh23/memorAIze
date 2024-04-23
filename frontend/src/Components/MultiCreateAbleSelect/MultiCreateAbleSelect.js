@@ -20,15 +20,9 @@ const customStyles = {
         height: '55px',
         overflow: 'auto'
     }),
-    multiValue: (styles) => ({
-        ...styles,
-    }),
-    multiValueLabel: (styles) => ({
-        ...styles,
-
-    }),
-    multiValueRemove: (styles) => ({
-        ...styles,
+    placeholder: (provided) => ({
+        ...provided,
+        color: '#9ca3af'
     })
 };
 
@@ -39,7 +33,8 @@ export function MultiCreateAbleSelect(props) {
         onChange,
         options,
         onCreateOption,
-        menuPlacement = 'top'
+        menuPlacement = 'top',
+        placeholder = 'Select...'
      } = props
     return (
         <CreatableSelect
@@ -51,6 +46,7 @@ export function MultiCreateAbleSelect(props) {
             onCreateOption={onCreateOption}
             formatCreateLabel={inputValue => `Add "${inputValue}"`}
             menuPlacement={menuPlacement}
+            placeholder={placeholder}
         />
     );
 }

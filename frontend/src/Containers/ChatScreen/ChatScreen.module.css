@@ -4,37 +4,20 @@
     flex-direction: column;
     height: 100vh;
     font-family: Arial, sans-serif;
-    /* background-color: #f7f7f7; */
     border: 1px solid #e1e1e1;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.messagesContainer {
-    flex-grow: 1;
-    overflow-y: auto;
-    padding: 20px 20px 0 20px;
-    margin-bottom: 20px;
-    background-color: #ffffff;
+.bannerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    font-size: 24px;
+    border-bottom: 1px solid #cccccc;
+    background: #008080;
+    color: white; 
 }
-
-.message {
-    background-color: #f0f0f0;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 8px;
-}
-
-.message.user{
-    background: #6ea9d7;
-    color: #000000de;
-}
-
-.message.agent{
-    /* background: #6ea9d7; */
-    color: #000000de;
-}
-
-
 
 
 
@@ -45,12 +28,11 @@
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
-    border-top: 1px solid grey;
+    border-top: 1px solid  #cccccc;
 }
 
 .formContainer {
     display: flex;
-    /* flex-direction: column; */
     width: 90%;
     margin-right: 5px;
 }
@@ -62,51 +44,32 @@
 .formContainer .questionContainer {
     display: flex;
     flex-grow: 1;
-    /* margin-bottom: 15px; */
     flex-direction: column;
-    /* background-color: #c6e3fa61; */
 }
 svg {
     width: 100%;
     height: 100%;
-    display: block; /* Removes bottom margin/gap */
+    display: block;
   }
 
 .questionContainer .questionInput {
     width: 100%;
-    background-color: #c6e3fa61;
+    height: 60px;
     padding: 8px;
+    background-color: #c6e3fa61;
     margin-right: 8px;
     outline: none;
+    border: 1px solid #cccccc;
     border-radius: .7em;
-    height: 60px;
 }
 
 .formContainer .linksContainer {
     width: 45%;
     margin-left: 10px;
-    /* width: 100%; */
     display: flex;
-
-    
-    /* flex-direction: column; */
-}
-
-.linksContainer .logLabelContainer {
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    margin-right: 15px;
-    width: 80px;
-}
-
-.logLabelContainer p {
-    color: #23202099;
-
 }
 
 .submitBtnContainer {
-    /* width: 10%; */
     display: flex;
     justify-content: center;
     align-items: center;

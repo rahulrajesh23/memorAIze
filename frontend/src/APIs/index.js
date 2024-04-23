@@ -13,7 +13,7 @@ export function submitQuestionAndDocuments(question, documents) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data) // Convert the JavaScript object to a JSON string
+        body: JSON.stringify(data)
     })
     .then(response => {
         if (!response.ok) {
@@ -39,26 +39,9 @@ export function getQuestionAndFacts() {
                 console.log('Data is still processing, retrying...');
             } else if (data.status === 'done') {
                 console.log('Processing complete:', data);
-                displayResults(data);
             }
             return data
         })
         .catch(error => console.error('Error polling the API:', error));
 }
-
-function displayResults(data) {
-    console.log('Question:', data.question);
-    console.log('Facts:', data.facts);
-    // Update the UI with these details
-}
-
-
-
-// Set a timeout and store the timeout ID
-let timeoutId = setTimeout(() => {
-    console.log('This will not run if clearTimeout is called before 3 seconds.');
-}, 3000);
-
-// Cancel the timeout
-clearTimeout(timeoutId);
 
