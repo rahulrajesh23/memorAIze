@@ -1,0 +1,44 @@
+# General
+node_modules/
+.env
+*.log
+*.cache
+*.pyc
+__pycache__/
+db.sqlite3
+*.swp
+.DS_Store
+*.idea/
+*.vscode/
+*.bak
+
+
+# React specific
+/frontend/build/
+/frontend/node_modules/
+/frontend/.cache/
+/frontend/coverage/
+/frontend/npm-debug.log
+/frontend/yarn-error.log
+/frontend/yarn-debug.log
+
+# FastAPI specific
+/backend/__pycache__/
+/backend/*.py[cod]
+/backend/*$py.class
+/backend/.pytest_cache/
+/backend/.venv
+/backend/venv/
+/backend/env/
+/backend/.env.local
+/backend/.env.development.local
+/backend/.env.test.local
+/backend/.env.production.local
+
+# Nginx specific
+/nginx/logs/
+/nginx/temp/
+
+
+# Ignore all .env files
+*.env
