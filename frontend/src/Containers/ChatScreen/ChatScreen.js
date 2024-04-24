@@ -82,7 +82,7 @@ export function ChatScreen() {
     }
 
     useEffect(() => {
-        console.log(`The waitingForResponse has updated to: ${waitingForResponse}`);
+        console.info(`Waiting for response: ${waitingForResponse}`);
         // Poll for response if we are expecting one
         if(waitingForResponse) {
             clearInterval(intervalID)
@@ -98,8 +98,6 @@ export function ChatScreen() {
 
             // Triggering Submit on Key press except if the the user is interacting with the multi select dropdown
             if(event.target && event.target.nodeName != "INPUT" ||  event.target == questionInputRef.current) {
-                console.log(event, questionInputRef.current);
-                console.log(question)
                 handleSendMessage()
             }        
         }
@@ -167,7 +165,6 @@ export function ChatScreen() {
                                 }
                                 else if (actionMeta.action === 'remove-value' || actionMeta.action === 'pop-value' && actionMeta.removedValue && actionMeta.removedValue.value) {
                                     // If a selected value is removed
-                                    console.log('Removed value:', actionMeta.removedValue);
                                     setSelectedUrls(currentSelectedOptions => currentSelectedOptions.filter(item => item !== actionMeta.removedValue.value))
                                     setSelectedOptions(selectedOptions)
                                 } else if (Array.isArray(selectedOptions) && selectedOptions.length > 0) {

@@ -1,4 +1,4 @@
-import { Constants } from "../Constants";
+import { Constants } from "../Config/Constants";
 
 const api_urls = Constants.apis
 export function submitQuestionAndDocuments(question, documents) {
@@ -22,7 +22,6 @@ export function submitQuestionAndDocuments(question, documents) {
         return response.json(); 
     })
     .then(data => {
-        console.log('Success:', data);
         return data
     })
     .catch(error => {
@@ -36,9 +35,9 @@ export function getQuestionAndFacts() {
         .then(response => response.json())
         .then(data => {
             if (data.status === 'processing') {
-                console.log('Data is still processing, retrying...');
+                console.info('Data is still processing, retrying...');
             } else if (data.status === 'done') {
-                console.log('Processing complete:', data);
+                console.info('Processing complete');
             }
             return data
         })
