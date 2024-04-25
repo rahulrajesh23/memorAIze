@@ -1,8 +1,8 @@
-# Transcript AI
+# MemorAIze
 
 ## Overview
 
-Transcript AI is designed to process documents and extract facts relevant to a user-submitted question. It employs advanced document processing techniques to maintain the accuracy and relevance of the facts over a series of documents, giving users only the most most succinct answer in a predictable format.
+MemorAIze is designed to process documents and extract facts relevant to a user-submitted question. It employs advanced document processing techniques to maintain the accuracy and relevance of the facts over a series of documents, giving users only the most most succinct answer in a predictable format.
 
 The next section goes over the Design Decisions and Limitations. This is followed by the Application Structure and finally, the Setup Instructions
 
@@ -96,7 +96,7 @@ This project includes Docker configurations for an integrated execution environm
 2. **Clone and Navigate**: Clone the forked repository to your local machine and navigate to the root folder of the project.
 
    ```bash
-   git git@github.com:rahulrajesh23/transcript-ai.git project_name
+   git git@github.com:rahulrajesh23/memorAIze.git project_name
    cd project_name
    ```
 3. **Environment Setup**:
