@@ -1,0 +1,11 @@
+1
+00:01:11,430 --> 00:01:40,520
+John: Hello, everybody. Let's start with the product design discussion. I think we should go with a modular design for our product. It will allow us to easily add or remove features as needed.
+
+2
+00:01:41,450 --> 00:01:49,190
+Sara: I agree with John. A modular design will provide us with the flexibility we need. Also, I suggest we use a responsive design to ensure our product works well on all devices. Finally, I think we should use websockets to improve latency and provide real-time updates.
+
+3
+00:01:49,340 --> 00:01:50,040
+Mike: Sounds good to me. I also propose we use a dark theme for the user interface. It's trendy and reduces eye strain for users. Let's hold off on the websockets for now since it's a little bit too much work.
