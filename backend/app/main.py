@@ -110,7 +110,7 @@ async def process_documents(request: QuestionAndDocumentsRequest):
             if "facts" in gpt_response and isinstance(gpt_response['facts'], list) and len(gpt_response["facts"]) >0 and not(len(gpt_response["facts"]) == 1 and gpt_response["facts"][0].strip() == ""):
                 facts = gpt_response["facts"]
             else:
-                facts = ["I'm sorry, I'm unable to answer your question'. Can you please try again?"]
+                facts = ["I'm sorry, I'm unable to answer your question. Can you please try again?"]
 
             processing_data["facts"] = facts
             processing_data["status"] = "done"
