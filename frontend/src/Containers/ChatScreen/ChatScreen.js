@@ -134,7 +134,7 @@ export function ChatScreen() {
         <div className={styles.chatContainer}>
             <div className={styles.bannerContainer}>
                 <p>
-                    Transcript AI
+                    MemorAIzer
                 </p>
             </div>
 

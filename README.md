@@ -10,8 +10,8 @@ The next section goes over the Design Decisions and Limitations. This is followe
 
 ### Document Retrieval
 
-- **Basic Parsing**: Initial parsing of documents focused on extracting only relevant dialogues to optimize the context sent to the LLM. Unnecessary White spaces are eliminated.
-- **Advanced Techniques**: Explored the use of a smaller model (e.g., SpaCy) to extract key keywords from the question and perform similarity matching on individual dialogues. However, this approach sometimes led to the loss of crucial context needed by the LLM to make informed decisions. In a production environment, the smaller model could be fine-tuned to more accurately extract relevant dialogues, considering the specific domain.
+- **Basic Parsing**: Initial parsing of documents focused on extracting only the dialogues (speaker : "dialogue") to optimize the context sent to the LLM. Unnecessary white spaces are also eliminated.
+- **Advanced Techniques Considered**: Explored the use of a smaller model (e.g., SpaCy) to extract key keywords from the question and perform similarity matching on individual dialogues. However, this approach sometimes led to the loss of crucial context needed by the LLM to make informed decisions and hence decided against. In a production environment, the smaller model could be fine-tuned to more accurately extract relevant dialogues considering the specific domain.
 
 
 ### Prompt Construction
@@ -20,7 +20,7 @@ The next section goes over the Design Decisions and Limitations. This is followe
 - **Brevity and Precision**: The goal was to keep the prompt concise, avoiding overfitting to specific test scenarios.
 - **Response Format**: Utilized `response_format={"type": "json_object"}` when calling the GPT-4 API to encourage the model to return a stringified JSON object.
 - **Token Management**: Configured `max_tokens` to ensure the GPT-4 output was constrained, preventing the model from processing an excessively high number of tokens.
-- **Privacy Concerns**: This wasn't implemented. Depending on the business use case, we could add instructions to protect personally identifiable information (PII)..
+- **Privacy Concerns**: This wasn't implemented. Depending on the business use case, we could add instructions to protect personally identifiable information (PII).
 - **Handling Outliers**: A default response was encoouraged while either the Question or the Context is irrelevant to the other.
 
 ### Limitations
